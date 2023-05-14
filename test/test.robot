@@ -30,3 +30,15 @@ Caso de teste 02 - Pesquisa de um produto
     Então o título da página deve ficar "Amazon.com.br : PlayStation 5"
     E um produto da linha "PlayStation" deve ser mostrado na página
 
+Caso de teste 03 - Adicionar um produto no carrinho
+    [Documentation]    Esse teste verifica a adição de itens do carrinho
+
+    [Tags]             carrinho
+
+    Dado que estou na página inicial da Amazon.com.br
+    Quando busco pelo produto "Playstation 5"
+    E seleciono o produto desejado
+    E verifico se o produto está disponível
+    E clico no botão "Adicionar ao carrinho"
+    Então o produto é adicionado ao carrinho com sucesso
+

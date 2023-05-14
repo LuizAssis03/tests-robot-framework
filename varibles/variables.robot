@@ -9,3 +9,7 @@ ${HEADER_PLASTATION}       (//span[@class='a-size-base a-color-base'][contains(.
 ${TITULO_HOME_PAGE}                  Amazon.com.br | Tudo pra você, de A a Z.
 ${TITULO_PAGE_ELETRONICOS}           Eletrônicos e Tecnologia | Amazon.com.br
 ${HEADER_COMPUTADOR_INFORMATICA}     //span[@class='nav-a-content'][contains(.,'Computadores e Informática')]
+${PRODUTO_PLAYSTATION}               //img[@alt='Console PlayStation 5']
+${BTN_COMPRAR}                      //input[contains(@name,'submit.buy-now')]
+${BTN_CARRINHO}                     //input[contains(@name,'submit.add-to-cart')]
+${BTN_COMPRAS}                      //a[contains(@data-csa-c-type,'button')]

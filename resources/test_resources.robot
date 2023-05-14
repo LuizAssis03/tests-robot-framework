@@ -2,7 +2,7 @@
 Library        SeleniumLibrary
 Library        OperatingSystem
 Library    Process
-Resource       ../resources/variables.robot
+Resource       ../varibles/variables.robot
 
 *** Keywords ***
 Abrir o navegador
@@ -55,3 +55,32 @@ Então o título da página deve ficar "Amazon.com.br : PlayStation 5"
 
 E um produto da linha "PlayStation" deve ser mostrado na página
     Wait Until Element Is Visible    locator=${HEADER_PLASTATION}
+
+
+#Caso de teste 03 - Adicionar um produto no carrinho
+Dado que estou na página inicial da Amazon.com.br
+    Go To    url=${URL}
+    Wait Until Element Is Visible    locator=${LOGO}
+
+Quando busco pelo produto "Playstation 5"
+    Wait Until Element Is Visible    locator=${SEARCH_BAR}
+    Click Element    locator=${SEARCH_BAR}
+    Input Text    locator=${SEARCH_BAR}    text=Playstation 5
+    Click Button    locator=${BTN_SEARCH}
+
+E seleciono o produto desejado
+    Wait Until Element Is Visible    locator=${PRODUTO_PLAYSTATION}
+    Click Element    locator=${PRODUTO_PLAYSTATION}
+
+E verifico se o produto está disponível
+    Title Should Be    title=Console PlayStation 5 | Amazon.com.br
+    Wait Until Element Is Visible    locator=${BTN_COMPRAR}
+
+E clico no botão "Adicionar ao carrinho"
+    Wait Until Element Is Visible    locator=${BTN_CARRINHO}
+    Click Button    locator=${BTN_CARRINHO}
+
+Então o produto é adicionado ao carrinho com sucesso
+    Title Should Be    title=Carrinho de compras da Amazon.com
+    Wait Until Element Is Visible    locator=${BTN_COMPRAS}
+    Wait Until Page Contains    text=Console PlayStation 5
